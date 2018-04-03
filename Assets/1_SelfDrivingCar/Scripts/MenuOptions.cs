@@ -41,6 +41,7 @@ public class MenuOptions : MonoBehaviour
 
     public void StartAutonomousMode()
     {
+		Debug.Log ("starting autonomous mode");
         if (track == 0) {
             SceneManager.LoadScene("LakeTrackAutonomous");
         } else {

@@ -5,6 +5,7 @@ using SocketIO;
 using UnityStandardAssets.Vehicles.Car;
 using System;
 using System.Security.AccessControl;
+using UnityEngine.SceneManagement;
 
 public class CommandServer : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class CommandServer : MonoBehaviour
 		_socket.On("open", OnOpen);
 		_socket.On("steer", OnSteer);
 		_socket.On("manual", onManual);
+		_socket.On("reset", OnReset);
 		_carController = CarRemoteControl.GetComponent<CarController>();
 	}
 
@@ -47,6 +49,14 @@ public class CommandServer : MonoBehaviour
 		CarRemoteControl.SteeringAngle = float.Parse(jsonObject.GetField("steering_angle").str);
 		CarRemoteControl.Acceleration = float.Parse(jsonObject.GetField("throttle").str);
 		EmitTelemetry(obj);
+	}
+
+	void OnReset(SocketIOEvent obj)
+	{
+		Debug.Log ("resetting in unity...");
+		SceneManager.LoadScene ("MenuScene");
+		SceneManager.LoadScene("LakeTrackAutonomous");
+//		Start ();
 	}
 
 	void EmitTelemetry(SocketIOEvent obj)
