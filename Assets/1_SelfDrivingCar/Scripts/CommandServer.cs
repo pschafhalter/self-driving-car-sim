@@ -53,9 +53,15 @@ public class CommandServer : MonoBehaviour
 
 	void OnReset(SocketIOEvent obj)
 	{
+//		_socket.Close ();
+//		_socket.Connect ();
+//		_socket.OnDestroy();
+//		Start ();
+//		_socket.Clear();
 		Debug.Log ("resetting in unity...");
-		SceneManager.LoadScene ("MenuScene");
+//		SceneManager.LoadScene ("MenuScene");
 		SceneManager.LoadScene("LakeTrackAutonomous");
+//		_socket.Connect ();
 //		Start ();
 	}
 

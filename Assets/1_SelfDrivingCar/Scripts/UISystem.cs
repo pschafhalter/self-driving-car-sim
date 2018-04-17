@@ -122,7 +122,7 @@ public class UISystem : MonoSingleton<UISystem> {
 			}
 		}
 
-	    if(Input.GetKeyDown(KeyCode.Escape))
+	    if (Input.GetKeyDown(KeyCode.Escape))
         {
             //Do Menu Here
             SceneManager.LoadScene("MenuScene");
@@ -130,7 +130,7 @@ public class UISystem : MonoSingleton<UISystem> {
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            //Do Console Here
+			SceneManager.LoadScene("LakeTrackAutonomous");
         }
 
         UpdateCarValues();

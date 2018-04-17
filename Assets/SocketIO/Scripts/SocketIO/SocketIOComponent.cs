@@ -179,6 +179,12 @@ namespace SocketIO
 			pingThread.Start(ws);
 		}
 
+		public void Clear()
+		{
+			eventQueue.Clear ();
+			ackQueue.Clear ();
+		}
+
 		public void Close()
 		{
 			EmitClose();
